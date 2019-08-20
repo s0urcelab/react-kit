@@ -4,7 +4,7 @@ A personal tool chain for React
 
 ## Usage
 
-just another wheel in the paradise.
+just another wheel in paradise.
 
 ```bash
 $ npm insatll
