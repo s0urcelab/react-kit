@@ -21,6 +21,7 @@ $ npm start
 
 * [ ] add url-loader, encode small img to base64
 * [ ] production mode
+* [ ] add router
 * [ ] add styled-component
 * [ ] add Rematch
 
