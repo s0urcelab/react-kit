@@ -32,7 +32,8 @@ module.exports = {
             "@babel/plugin-transform-react-constant-elements", // 静态组件优化
             "@babel/plugin-transform-react-jsx-source", // __source组件定位属性
             "@babel/plugin-transform-react-jsx", // <></>fragment
-            "react-hot-loader/babel" // react 热更新
+            "react-hot-loader/babel", // react 热更新
+            "babel-plugin-styled-components" // styled-component插件
           ]
         }
       }
@@ -40,7 +41,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'Assets': path.resolve(__dirname, 'assets/'),
+      '@assets': path.resolve(__dirname, 'assets/'),
       '@': path.resolve(__dirname, 'src/')
     }
   },
