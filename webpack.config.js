@@ -23,6 +23,8 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'], // 顺序右到左，先处理高级或特殊语法
           plugins: [
+            // "@babel/plugin-transform-runtime",
+            "@babel/plugin-proposal-class-properties", // class属性
             "@babel/plugin-transform-async-to-generator", // async/await
             "@babel/plugin-proposal-object-rest-spread", // 对象扩展运算符
             ["@babel/plugin-proposal-decorators", {legacy: true}], // 装饰器
@@ -41,6 +43,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'react-dom': '@hot-loader/react-dom',
       '@assets': path.resolve(__dirname, 'assets/'),
       '@': path.resolve(__dirname, 'src/')
     }

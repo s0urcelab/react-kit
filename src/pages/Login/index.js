@@ -1,16 +1,21 @@
-import React from 'react';
-import styled from 'styled-components'
-
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-`
+import React, {useState} from 'react';
+import { Button, Radio } from '@/components'
 
 function Login() {
-  return <Button>账号密码</Button>
+  const [checked, toggleChecked] = useState(false)
+
+  const [isCom, toggleCom] = useState(false)
+  return (
+    <>
+      <Button onClick={() => toggleChecked(true)}>选中</Button>
+      <Button hollow onClick={() => toggleChecked(false)}>取消</Button>
+      <Radio checked={checked}>Radio</Radio>
+
+
+      <h1>{String(isCom)}</h1>
+      <Button onClick={() => toggleCom(!isCom)}>Btnnnnn</Button>
+    </>
+  )
 }
+
 export default Login;
