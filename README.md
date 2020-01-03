@@ -1,6 +1,6 @@
 # React Kit
 
-❤️ A personal tool chain for React
+❤️ personal tool chain for React
 
 ## Usage
 
