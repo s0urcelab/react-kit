@@ -23,6 +23,7 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'], // 顺序右到左，先处理高级或特殊语法
           plugins: [
+            "react-hot-loader/babel", // react 热更新
             "@babel/plugin-transform-async-to-generator", // async/await
             "@babel/plugin-proposal-object-rest-spread", // 对象扩展运算符
             ["@babel/plugin-proposal-decorators", {legacy: true}], // 装饰器
@@ -32,7 +33,6 @@ module.exports = {
             "@babel/plugin-transform-react-constant-elements", // 静态组件优化
             "@babel/plugin-transform-react-jsx-source", // __source组件定位属性
             "@babel/plugin-transform-react-jsx", // <></>fragment
-            "react-hot-loader/babel", // react 热更新
             "babel-plugin-styled-components" // styled-component插件
           ]
         }
@@ -41,6 +41,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'react-dom': '@hot-loader/react-dom',
       '@assets': path.resolve(__dirname, 'assets/'),
       '@': path.resolve(__dirname, 'src/')
     }
@@ -50,14 +51,6 @@ module.exports = {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
-  devServer: {
-    open: true,
-    historyApiFallback: true,
-    contentBase: path.join(__dirname, "public/"),
-    port: 5555,
-    publicPath: "/",
-    hotOnly: true
-  },
   plugins: [
     new CleanWebpackPlugin(), // 清空dist
     new HtmlWebpackPlugin({
@@ -66,5 +59,22 @@ module.exports = {
       template: './public/index.temp.html' // 以哪个文件作为模板，不指定的话用默认的空模板
     }),
     new webpack.HotModuleReplacementPlugin() // 热更新
-  ]
+  ],
+  devServer: {
+    open: true,
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, "public/"),
+    port: 5555,
+    publicPath: "/",
+    proxy: {
+      "/api": {
+        "target": "https://jsonplaceholder.typicode.com/",
+        "changeOrigin": true,
+        "secure": true,
+        "pathRewrite": {
+          "^/api": ""
+        }
+      }
+    },
+  },
 };

@@ -1,7 +1,7 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
 
-import Login from './Login'
+import Demo from './Demo'
 
 import './container.css';
 
@@ -13,7 +13,7 @@ class Container extends React.Component {
   render() {
     return (
       <div className='container'>
-        <Login/>
+        <Demo/>
       </div>
     );
   }
