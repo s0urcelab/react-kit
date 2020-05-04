@@ -13,17 +13,8 @@ const Button = styled.button`
 function Demo() {
   const [foo, setFoo] = useState('nothing...')
 
-  useEffect(() => {
-    window.fetch("/api/todos/1")
-      .then(response => response.json())
-      .then(setFoo)
-  }, [])
-
-  return (
-    <>
-      <p>Data：{JSON.stringify(foo)}</p>
-      <Button>red button</Button>
-    </>
-  )
+  return [1,2,4].map((v, i) => (
+    <p key={2222}>{v}</p>
+  ))
 }
 export default Demo;
