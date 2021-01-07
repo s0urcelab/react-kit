@@ -9,6 +9,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
@@ -23,6 +27,14 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'], // 顺序右到左，先处理高级或特殊语法
           plugins: [
+            ["import", {
+              "libraryName": "rcom",
+              // "libraryDirectory": "src/reactComponents",
+              "camel2DashComponentName": false,  // default: true
+              "customName": (name) => {
+                return `@/reactComponents/${name}` // 核心配置 根据你自己的组件目录配置
+              },
+            }],
             "react-hot-loader/babel", // react 热更新
             "@babel/plugin-transform-async-to-generator", // async/await
             "@babel/plugin-proposal-object-rest-spread", // 对象扩展运算符
@@ -33,7 +45,8 @@ module.exports = {
             "@babel/plugin-transform-react-constant-elements", // 静态组件优化
             "@babel/plugin-transform-react-jsx-source", // __source组件定位属性
             "@babel/plugin-transform-react-jsx", // <></>fragment
-            "babel-plugin-styled-components" // styled-component插件
+            "@babel/plugin-proposal-class-properties",
+            "babel-plugin-styled-components", // styled-component插件
           ]
         }
       }

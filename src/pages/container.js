@@ -1,22 +1,21 @@
-import { hot } from 'react-hot-loader/root';
-import React from 'react';
+import { hot } from 'react-hot-loader/root'
+import React from "react"
 
-import Demo from './Demo'
+import Playground from "@/pages/playground"
+// import Antd from "@/pages/antd"
 
-import './container.css';
+import { Button } from 'rcom'
 
-class Container extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import './container.css'
 
-  render() {
+const Container = () => {
     return (
-      <div className='container'>
-        <Demo/>
-      </div>
-    );
-  }
+        <div className="container">
+            <Playground />
+            {/*<Antd />*/}
+            {/*<Button>4234</Button>*/}
+        </div>
+    )
 }
 
-export default hot(Container);
+export default hot(Container)
