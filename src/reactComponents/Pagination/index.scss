@@ -1,0 +1,104 @@
+.pagination-wrapper {
+    text-align: right;
+}
+
+.pagination-wrapper .pagination-item {
+    display: inline-block;
+}
+
+.pagination-wrapper .page-item {
+    min-width: 14px;
+}
+
+.pagination-wrapper .page-item.page-item-active,
+.pagination-wrapper .page-item:hover,
+.pagination-wrapper .prev:not(.disabled):hover,
+.pagination-wrapper .next:not(.disabled):hover,
+.pagination-wrapper .quick-jumper button:hover {
+    background: #f70;
+    color: #fff;
+    border: 1px solid #f70;
+}
+
+.pagination-wrapper .page-item,
+.pagination-wrapper .prev,
+.pagination-wrapper .next,
+.pagination-wrapper .quick-jumper button {
+    user-select:none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 26px;
+    color: #7f7f7f;
+    background-color: white;
+    margin: 0 4px;
+    padding: 0 10px;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+}
+
+.pagination-wrapper .disabled {
+    color: #bfbfbf;
+    border: 1px solid #bfbfbf;
+    cursor: not-allowed;
+}
+
+.pagination-wrapper .jump-prev:after,
+.pagination-wrapper .jump-next:after {
+    cursor: pointer;
+    content: '...';
+    font-weight: bold;
+    display: block;
+    width: 8px;
+    margin: 0 5px;
+}
+
+.pagination-wrapper .jump-prev:hover:after {
+    content: '<';
+    color: #f70;
+}
+
+
+.pagination-wrapper .jump-next:hover:after {
+    content: '>';
+    color: #f70;
+}
+
+.pagination-wrapper .quick-jumper {
+    display: inline-block;
+}
+
+.pagination-wrapper .quick-jumper {
+    margin-left: 4px;
+    color: #7f7f7f;
+    line-height: 28px;
+}
+
+.pagination-wrapper .quick-jumper input {
+    vertical-align: baseline;
+    margin: 0 5px;
+    padding: 0 5px;
+    width: 34px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #d5d5d5;
+}
+
+.pagination-wrapper .size-changer {
+    font-size: 12px;
+    width: 70px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.size-changer-dropdown {
+    font-size: 12px;
+}
+
+.size-changer-dropdown .options-list {
+    top: 30px;
+    width: 82px;
+}
+
+.size-changer-dropdown .select-icon {
+    top: 11px;
+}

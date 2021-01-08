@@ -6,97 +6,35 @@
  */
 
 import React, {Fragment, useRef, useEffect, useState} from 'react'
+import { Select } from '@/reactComponents'
+const { Option } = Select
 
-// import moment from 'moment'
-//
-// import { Button, Table, Checkbox, DatePicker, Select, Modal, Loading, Input, InputNum, Tooltip } from '@/reactComponents'
-//
-// import Trigger from '../reactComponents/Modal/trigger';
-//
-// const { Option } = Select
-//
-// const columns = [
-//     {
-//         title: 'Name',
-//         dataIndex: 'name',
-//         sorter: true,
-//     },
-//     {
-//         title: 'Age',
-//         dataIndex: 'age'
-//     },
-//     {
-//         title: 'Address',
-//         dataIndex: 'address'
-//     }
-// ]
-//
-// const data1 = []
-// for (let i = 0; i < 5; i++) {
-//     data1.push({
-//         key: i,
-//         name: `AAAAA ${i}`,
-//         age: 32,
-//         address: `London, Park Lane no. ${i}`
-//     })
-// }
-//
-// const data2 = []
-// for (let i = 0; i < 5; i++) {
-//     data2.push({
-//         key: i,
-//         name: `BBBBBB ${i}`,
-//         age: 32,
-//         address: `London, Park Lane no. ${i}`
-//     })
-// }
-//
-//
-// class AAA extends React.Component {
-//     static defaultProps = {
-//         ppp: {},
-//     }
-//     constructor(props) {
-//         super(props);
-//         console.log(props.ppp)
-//     }
-//     render() {
-//         return (
-//             <div>{this.props.ppp}</div>
-//         )
-//     }
-// }
-
-
-const Playground = (props) => {
-    // const [modal, showModal] = useState(false)
-    // const [modal2, showModal2] = useState(false)
-    //
-    // const [selectedRowKeys, select] = useState([])
-    // const [page, setPage] = useState(1)
-    // const [checked, setCheck] = useState(false)
-    // const [num, setNum] = useState(123)
-    //
-    // const onSelectChange = selectedRowKeys => {
-    //     console.log('selectedRowKeys changed: ', selectedRowKeys)
-    //     select(selectedRowKeys)
-    // }
-    //
-    // const start = () => {
-    //     select([...selectedRowKeys, 'AAAAA 2'])
-    // }
-    //
-    // const hasSelected = selectedRowKeys.length > 0
-    //
-    // const onchange = (val) => {
-    //     setNum(val)
-    //     console.log('number', val)
-    // }
-    //
-    // const [date, setDate] = useState('2020-06-01')
+const Playground = () => {
+    const P = [
+        {
+            label: "好啊",
+            value: "111"
+        },
+        {
+            label: "给对方",
+            value: "222"
+        }
+    ];
 
     return (
         <Fragment>
+            <h3>Select</h3>
+            <Select
+                // defaultValue="lucy"
+                onSelect={console.log}
+                // options={P}
+            >
+                {/*<Option value="jack">Jack</Option>*/}
+                {/*<Option value="lucy">Lucy</Option>*/}
+                {/*<Option value="Yiminghe">yiminghe</Option>*/}
+                {/*<h3>3213</h3>*/}
+            </Select>
+
             {/*<h3>fully controlled</h3>*/}
             {/*<DatePicker*/}
             {/*    // picker="month"*/}

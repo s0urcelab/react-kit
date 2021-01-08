@@ -1,0 +1,41 @@
+@keyframes bigger {
+    from {
+        transform: scale(0);
+    }
+}
+.r-checkbox {
+    cursor: pointer;
+    display: inline-block;
+
+    .checkbox-item {
+        width: 16px;
+        height: 16px;
+        border-radius: 10px;
+        background-color: white;
+        color: #d9d9d9;
+
+        &.checked {
+            color: #f70;
+
+            &.disabled {
+                color: #d5d5d5;
+            }
+        }
+        &.disabled {
+            cursor: not-allowed;
+            background-color: #eee;
+        }
+        &:not(.disabled):hover {
+            color: #f70;
+        }
+    }
+    .checkbox-label {
+        padding-left: 6px;
+    }
+
+    .checkbox-item,
+    .checkbox-label {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

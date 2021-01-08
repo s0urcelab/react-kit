@@ -2,10 +2,10 @@
   padding: 24px;
 }
 
-.detail p {
-  white-space: nowrap;
+ol,
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
 }
 
-p {
-  margin-bottom: 0;
-}

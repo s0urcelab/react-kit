@@ -1,0 +1,220 @@
+.r-datepicker {
+    display: inline-block;
+    outline: none;
+
+    .picker-input {
+        position: relative;
+        display: inline-block;
+
+        .suffix-icon {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+        }
+        .calendar-icon {
+            color: #ccc;
+            width: 16px;
+            height: 16px;
+        }
+        .clear-btn {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            display: none;
+            cursor: pointer;
+            color: white;
+            background-color: #bebebe;
+            height: 18px;
+            width: 18px;
+            font-size: 18px;
+            line-height: 18px;
+            border: solid 5px white;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        &:hover .clear-btn {
+            display: inline-block;
+        }
+    }
+}
+
+.r-datepicker-dropdown {
+    position: absolute;
+    top: 32px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px #bbbaba;
+
+    .date-dropdown-header {
+        user-select: none;
+        display: flex;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        padding: 0 6px;
+
+        .opt {
+            cursor: pointer;
+        }
+        .title {
+            color: #666;
+            flex: auto;
+            text-align: center;
+            height: 34px;
+            line-height: 34px;
+            font-weight: bold;
+
+            span:first-child {
+                margin-right: 8px;
+            }
+            span:hover {
+                color: #f70;
+            }
+        }
+        button {
+            outline: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ccc;
+            background: transparent;
+            border: 0;
+
+            &:hover {
+                color: #f70;
+            }
+        }
+    }
+
+    .date-dropdown-body {
+        padding: 5px 10px;
+        border-top: solid 1px #ddd;
+        border-bottom: solid 1px #ddd;
+
+        .picker-table {
+            user-select: none;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    }
+
+    .date-dropdown-footer {
+        text-align: center;
+
+        .today-btn {
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            outline: none;
+            line-height: 34px;
+            color: #f70;
+            background-color: transparent;
+            border: none;
+
+            &.disabled {
+                cursor: not-allowed;
+                color: #ccc;
+            }
+        }
+
+    }
+
+    &.day-picker {
+        .week-bar th {
+            width: 32px;
+            height: 28px;
+            color: #666;
+            line-height: 30px;
+            font-weight: normal;
+        }
+
+        .picker-cell {
+            cursor: pointer;
+            color: #ccc;
+            padding: 3px;
+            min-width: 24px;
+        }
+
+        .picker-cell .cell-box {
+            border-radius: 2px;
+            line-height: 26px;
+        }
+
+        .picker-cell:hover:not(.selected):not(.disabled) .cell-box {
+            background-color: #ff770085;
+            color: white;
+        }
+
+        .picker-cell.belong .cell-box {
+            color: #666;
+            border: solid 1px transparent;
+        }
+
+        .picker-cell.today .cell-box {
+            border: solid 1px #f70;
+        }
+
+        .picker-cell.today.disabled .cell-box {
+            border: solid 1px #ccc;
+        }
+
+        .picker-cell.belong.selected .cell-box {
+            color: white;
+            background-color: #f70;
+            border: solid 1px #f70;
+        }
+
+        .picker-cell.disabled .cell-box {
+            cursor: not-allowed;
+            margin: 0 -3px;
+            color: #ccc;
+            background-color: #f5f5f5;
+        }
+    }
+
+    &.month-picker,
+    &.year-picker {
+        font-size: 14px;
+
+        .picker-cell {
+            cursor: pointer;
+            padding: 14px 10px;
+        }
+
+        .picker-cell .cell-box {
+            width: 50px;
+            border-radius: 2px;
+            line-height: 26px;
+            color: #666;
+            border: solid 1px transparent;
+        }
+
+        .picker-cell:hover:not(.selected):not(.disabled) .cell-box {
+            background-color: #ff770085;
+            color: white;
+        }
+
+        .picker-cell.outside .cell-box {
+            color: #ccc;
+        }
+
+        .picker-cell.selected .cell-box {
+            color: white;
+            background-color: #f70;
+            border: solid 1px #f70;
+        }
+
+        .picker-cell.disabled .cell-box {
+            cursor: not-allowed;
+            margin: 0 -3px;
+            color: #ccc;
+            background-color: #f5f5f5;
+        }
+    }
+
+    &.year-picker {
+
+    }
+
+}

@@ -1,0 +1,177 @@
+.r-table-wrapper {
+    position: relative;
+
+    .align-center {
+        text-align: center;
+    }
+    .align-left {
+        text-align: left;
+    }
+    .align-right {
+        text-align: right;
+    }
+
+    .table-list-thead {
+        user-select: none;
+        cursor: default;
+        background-color: #f6f6f6;
+
+        .thead-cell {
+            text-align: center;
+
+            &.sortable {
+                cursor: pointer;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+
+    .table-list-body {
+        &.loading {
+            filter: blur(2px);
+        }
+        &.bordered {
+            .table-row-cell,
+            .thead-cell {
+                border: 1px solid #e4e4e4;
+            }
+        }
+
+        table {
+            width: 100%;
+            padding: 0;
+            color: #555;
+            font-size: 12px;
+            border-collapse: collapse;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+        .table-list-thead {
+            .thead-cell {
+                padding: 6px 10px;
+                vertical-align: middle;
+                min-width: 43px;
+                height: 40px;
+                font-size: 14px;
+                font-weight: 700;
+                border-bottom: 1px solid #eee;
+
+                &.row-selection-column {
+                    min-width: auto;
+                    width: 16px;
+                }
+                &.row-expand-icon-cell {
+                    min-width: auto;
+                    width: 26px;
+                }
+            }
+
+        }
+        .table-list-tbody {
+            .table-row-cell {
+                padding: 6px 10px;
+                vertical-align: middle;
+                height: 46px;
+                color: #777;
+            }
+            .table-row {
+                &:hover {
+                    background-color: #fcfcfc;
+                }
+                &.selected {
+                    background-color: #fff2e7;
+                }
+            }
+            .table-row,
+            .table-expanded-row {
+                border-bottom: 1px solid #eee;
+            }
+        }
+        .table-expanded-row {
+            .table-loading-icon {
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+        .expand-icon {
+            cursor: pointer;
+
+            &.collapsed {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 5px 0 5px 10px;
+                border-color: transparent transparent transparent #cccbcb;
+            }
+            &.expanded {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 5px 0 5px;
+                border-color: #cccbcb transparent transparent transparent;
+            }
+        }
+    }
+
+    .pagination-wrapper {
+        margin-top: 10px;
+    }
+    .sorter-icon {
+        margin-left: 5px;
+        vertical-align: top;
+        display: inline-block;
+        color: #bfbfbf;
+        &.ascend .sorter-icon-up {
+            color: #f70;
+        }
+        &.descend .sorter-icon-down {
+            color: #f70;
+        }
+    }
+    .sorter-icon-down,
+    .sorter-icon-up {
+        display: block;
+        font-size: 11px;
+        color: inherit;
+        font-style: normal;
+        line-height: 0;
+        text-align: center;
+        vertical-align: -0.125em;
+    }
+    .sorter-icon-down {
+        margin-top: -0.3em;
+    }
+
+    .table-list-empty {
+        text-align: center;
+
+        .default-tips {
+            line-height: 160px;
+            font-size: 14px;
+            color: #777;
+        }
+    }
+    .loading-mask {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        .table-loading-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -20px;
+        }
+    }
+
+    .table-list-body.contrast-bgc .table-list-tbody tr:nth-child(even),
+    .table-list-tbody .table-expanded-row {
+        background-color: #f6f6f6;
+    }
+}
+
+

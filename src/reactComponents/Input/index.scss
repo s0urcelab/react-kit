@@ -1,0 +1,22 @@
+.r-input {
+    display: inline-block;
+    width: 160px;
+
+    input {
+        box-sizing: border-box;
+        font-size: 14px;
+        outline: 0;
+        width: 100%;
+        padding: 0 10px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: .2s;
+
+        &:focus,
+        &:hover {
+            border: 1px solid #f70;
+        }
+    }
+}

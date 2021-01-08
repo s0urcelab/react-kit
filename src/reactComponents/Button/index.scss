@@ -1,0 +1,58 @@
+.r-button {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+
+    &.size-normal {
+        min-width: 34px;
+        line-height: 30px;
+        border-radius: 3px;
+        padding: 0 10px;
+    }
+    &.size-big {
+        font-size: 14px;
+        min-width: 64px;
+        line-height: 34px;
+        border-radius: 4px;
+        padding: 0 14px;
+    }
+    &.fill {
+        background-color: #f70;
+        color: #fff;
+        border: 1px solid #f70;
+
+        &:hover {
+            border: 1px solid #f70c;
+            background-color: #f70c;
+        }
+        &:active {
+            border: 1px solid #e26b03;
+            background-color: #e26b03;
+        }
+    }
+    &.hollow {
+        color: #7f7f7f;
+        border: 1px solid #d5d5d5;
+        background-color: white;
+
+        &:hover {
+            background-color: #fd841a;
+            color: #fff;
+            border: 1px solid #fd841a;
+        }
+    }
+    &.disabled {
+        cursor: not-allowed;
+        color: white;
+        background: #999;
+        border-color: #999;
+
+        &:hover {
+            color: white;
+            background: #999;
+            border-color: #999;
+        }
+    }
+}
+
