@@ -36,6 +36,7 @@ module.exports = {
               },
             }],
             "react-hot-loader/babel", // react 热更新
+            "@babel/plugin-transform-runtime",
             "@babel/plugin-transform-async-to-generator", // async/await
             "@babel/plugin-proposal-object-rest-spread", // 对象扩展运算符
             ["@babel/plugin-proposal-decorators", {legacy: true}], // 装饰器
@@ -81,7 +82,7 @@ module.exports = {
     publicPath: "/",
     proxy: {
       "/api": {
-        "target": "https://jsonplaceholder.typicode.com/",
+        "target": "http://localhost:7001/",
         "changeOrigin": true,
         "secure": true,
         "pathRewrite": {

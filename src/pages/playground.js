@@ -4,36 +4,124 @@
  *  @Declare : playground
  *
  */
+import React, {Fragment, useEffect} from 'react'
+import axios from "axios";
 
-import React, {Fragment, useRef, useEffect, useState} from 'react'
-import { Select } from '@/reactComponents'
-const { Option } = Select
+
+const instance = axios.create({
+    // baseURL: document.URL,
+    timeout: 1000,
+});
+
+instance.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response.status === 401 && error.response.data) {
+            window.location.href = error.response.data
+        }
+        return Promise.reject(error);
+    })
 
 const Playground = () => {
-    const P = [
-        {
-            label: "好啊",
-            value: "111"
-        },
-        {
-            label: "给对方",
-            value: "222"
-        }
-    ];
+
+    const post = (url, p) => axios.post(url, p)
+        .then(console.log)
+
+    const get = (url, p) => axios.get(url, p)
+        .then(console.log)
+    // const post = (url, params) => fetch(url, {
+    //     method: 'post',
+    //     body: JSON.stringify(params),
+    // })
+    //     .then((res) => {
+    //         if (res.status >= 200 && res.status < 400) {
+    //             return res.json();
+    //         }
+    //         throw res;
+    //     })
+    //     .catch((err) => {
+    //         if (err.status === 401) {
+    //             err.text().then((backUrl) => {
+    //                 window.location.href = backUrl;
+    //             });
+    //         }
+    //         throw err;
+    //     });
+    // const get = (url) => fetch(url)
+    //     .then((res) => {
+    //         if (res.status >= 200 && res.status < 400) {
+    //             return res.json();
+    //         }
+    //         throw res;
+    //     })
+    //     .catch((err) => {
+    //         if (err.status === 401) {
+    //             err.text().then((backUrl) => {
+    //                 window.location.href = backUrl;
+    //             });
+    //         }
+    //         throw err;
+    //     });
+
+    const login = () => {
+        // fetch('/api/userInfo')
+        //     .then((res) => {
+        //         if (res.status >= 200 && res.status < 400) {
+        //             return res.json();
+        //         }
+        //         throw res;
+        //     })
+        //     .catch((err) => {
+        //         if (err.status === 401) {
+        //             err.text().then((backUrl) => {
+        //                 window.location.href = backUrl;
+        //             });
+        //         }
+        //         throw err;
+        //     });
+        instance.get('/api/api/v1/user/info')
+    }
+
+    const logout = () => {
+        fetch('/api/logout')
+            .then((res) => {
+                res.text().then((backUrl) => {
+                    window.location.href = backUrl;
+                });
+            })
+    }
+
+    const getUser = () => {
+        instance.get('/api/api/v1/user/info')
+    }
+
+
+
+    const demo = async () => {
+        get('/api/api/v1/demo')
+            .then((res) => {
+                console.log(res)
+            })
+    }
 
     return (
         <Fragment>
-            <h3>Select</h3>
-            <Select
-                // defaultValue="lucy"
-                onSelect={console.log}
-                // options={P}
-            >
-                {/*<Option value="jack">Jack</Option>*/}
-                {/*<Option value="lucy">Lucy</Option>*/}
-                {/*<Option value="Yiminghe">yiminghe</Option>*/}
-                {/*<h3>3213</h3>*/}
-            </Select>
+            {/*<button onClick={login}>登录</button>*/}
+            <button onClick={logout}>注销</button>
+            <button onClick={getUser}>用户信息</button>
+            {/*<button onClick={demo}>测试</button>*/}
+
+            {/*<h3>Select</h3>*/}
+            {/*<Select*/}
+            {/*    // defaultValue="lucy"*/}
+            {/*    onSelect={console.log}*/}
+            {/*    // options={P}*/}
+            {/*>*/}
+            {/*    /!*<Option value="jack">Jack</Option>*!/*/}
+            {/*    /!*<Option value="lucy">Lucy</Option>*!/*/}
+            {/*    /!*<Option value="Yiminghe">yiminghe</Option>*!/*/}
+            {/*    /!*<h3>3213</h3>*!/*/}
+            {/*</Select>*/}
 
             {/*<h3>fully controlled</h3>*/}
             {/*<DatePicker*/}
