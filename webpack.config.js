@@ -5,7 +5,7 @@ const webpack = require("webpack");
 
 module.exports = {
   devtool: "source-map",
-  entry: ["react-hot-loader/patch", "./src/index.js"],
+  entry: ["react-hot-loader/patch", "./src/entry.js"],
   module: {
     rules: [
       {
@@ -13,7 +13,7 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|webp)$/,
         loader: "file-loader"
       },
       {
@@ -61,10 +61,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin() // 热更新
   ],
   devServer: {
-    open: true,
+    // open: true,
     historyApiFallback: true,
     contentBase: path.join(__dirname, "public/"),
     port: 5555,
+    host: '0.0.0.0',
     publicPath: "/",
     proxy: {
       "/api": {
