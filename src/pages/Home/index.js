@@ -10,29 +10,15 @@ import {
   Input,
   Center,
   HStack,
-  Icon,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  useDisclosure,
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons'
 import { ColorModeSwitcher } from '@/components/ColorModeSwitcher';
 import { videoSiteList, shoppingSiteList } from '@/config'
-// import SidePanel from '@/components/SidePanel';
 
-import './index.css'
+import './index.scss'
 
 function Home() {
   const [userInput, setInput] = useState('')
-  // const { isOpen, onOpen, onClose } = useDisclosure()
-
-  // const handleClick = (newSize) => {
-  //   setSize(newSize)
-  //   onOpen()
-  // }
 
   const onSearch = (e) => {
     if (e.key === 'Enter') {
@@ -72,7 +58,7 @@ function Home() {
                   borderWidth="1px"
                   borderRadius="lg"
                 >
-                  <div className="site-item-bg">{site.title}</div>
+                  {/* <div className="site-item-bg">{site.title}</div> */}
                   <a href={site.url} target="_blank" >
                     <Center h="100%">
                       <img className="site-logo" alt="" src={site.logo} />
@@ -92,7 +78,7 @@ function Home() {
                   borderWidth="1px"
                   borderRadius="lg"
                 >
-                  <div className="site-item-bg">{site.title}</div>
+                  {/* <div className="site-item-bg">{site.title}</div> */}
                   <a href={site.url} target="_blank" >
                     <Center h="100%">
                       <img className="site-logo" alt="" src={site.logo} />
@@ -104,18 +90,6 @@ function Home() {
           </HStack>
         </VStack>
       </SimpleGrid>
-
-      {/* // todo: 购物网站增加
-      // todo: 密码输入or连续touch标题触发
-      <Drawer onClose={onClose} isOpen={isOpen} size="xs">
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerHeader>xs drawer contents</DrawerHeader>
-          <DrawerBody>
-            
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer> */}
     </Box>
   );
 }

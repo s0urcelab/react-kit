@@ -8,11 +8,12 @@
     position: relative;
     width: 200px;
     height: 130px;
-}
-.site-item:hover {
-    transform: scale(1.05);
-    background-color: white;
-    transition: transform 200ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: white;
+        transition: transform 200ms ease-in-out;
+    }
 }
 .site-item-bg {
     position: absolute;
