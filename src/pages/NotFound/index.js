@@ -16,7 +16,12 @@ export default () => {
         <div className="page-404">
             <a className="back-btn" href="/">返回</a>
             <div className="background-wrapper">
-                <h1 className="visual" style={{ transform: `translate(-50%, -50%) rotate(-${ratio}deg)` }}>404</h1>
+                <h1
+                    className="visual"
+                    style={{ transform: `translate(-50%, -50%) rotate(-${ratio}deg)` }}
+                >
+                    404
+                </h1>
             </div>
             <p className="page-desc">你要找的页面并不存在</p>
         </div>
