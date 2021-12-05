@@ -6,13 +6,14 @@ import {
   theme,
 } from '@chakra-ui/react';
 
-// 页面入口
 import Home from './Home'
+import NotFound from './NotFound'
 
 const Root = () => (
   <ChakraProvider theme={theme}>
     <Router>
       <Home path="/" />
+      <NotFound default />
     </Router>
   </ChakraProvider>
 )

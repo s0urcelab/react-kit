@@ -9,6 +9,17 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
@@ -56,7 +67,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       // filename: path.join(__dirname, 'entry.html'), // 生成的html(绝对路径：可用于生成到根目录)
       filename: 'index.html', // 生成的html文件名（相对路径：将生成到output.path指定的dist目录下）
-      template: './public/index.temp.html' // 以哪个文件作为模板，不指定的话用默认的空模板
+      template: './public/index.templ.html', // 以哪个文件作为模板，不指定的话用默认的空模板
+      favicon: './public/favicon.ico', // favicon图标
     }),
     new webpack.HotModuleReplacementPlugin() // 热更新
   ],
