@@ -10,15 +10,44 @@ import {
   Input,
   Center,
   HStack,
+  useToast,
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons'
 import { ColorModeSwitcher } from '@/components/ColorModeSwitcher';
 import { videoSiteList, shoppingSiteList } from '@/config'
+import useKeyPress from '@/hooks/useKeyPress'
+import Sider from './components/Sider'
 
 import './index.scss'
 
 function Home() {
   const [userInput, setInput] = useState('')
+  const toast = useToast()
+
+  // 上上下下左右左右BABA
+  useKeyPress([
+    'ArrowUp',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'ArrowLeft',
+    'ArrowRight',
+    'b',
+    'a',
+    'b',
+    'a'
+  ], () => {
+    if (!window.localStorage['ACTIVE_HW_STATUS']) {
+      window.localStorage['ACTIVE_HW_STATUS'] = 1
+      toast({
+        description: '隐藏功能已激活！',
+        status: 'success',
+        duration: 3000,
+      })
+    }
+  })
 
   const onSearch = (e) => {
     if (e.key === 'Enter') {
@@ -29,7 +58,12 @@ function Home() {
   return (
     <Box textAlign="center" fontSize="xl">
       <SimpleGrid templateRows="10%">
-        <ColorModeSwitcher justifySelf="flex-end" />
+        <div className="header-actions">
+          {
+            !!window.localStorage['ACTIVE_HW_STATUS'] && <Sider />
+          }
+          <ColorModeSwitcher />
+        </div>
         <VStack spacing={8}>
           <Text fontSize="5xl" fontWeight="bold" color="gray.600" className="main-title">导航</Text>
           <InputGroup width="40%" variant="filled">

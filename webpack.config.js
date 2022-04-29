@@ -63,21 +63,27 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new CleanWebpackPlugin(), // 清空dist
+    // 清空dist
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       // filename: path.join(__dirname, 'entry.html'), // 生成的html(绝对路径：可用于生成到根目录)
       filename: 'index.html', // 生成的html文件名（相对路径：将生成到output.path指定的dist目录下）
       template: './public/index.templ.html', // 以哪个文件作为模板，不指定的话用默认的空模板
       favicon: './public/favicon.ico', // favicon图标
     }),
-    new webpack.HotModuleReplacementPlugin() // 热更新
+    // 热更新
+    new webpack.HotModuleReplacementPlugin(),
+    // 注入环境变量
+    new webpack.DefinePlugin({
+      HTPC_DOMAIN: JSON.stringify(process.env.HTPC_DOMAIN || 'home.src.moe:8000'),
+    }),
   ],
   devServer: {
     // open: true,
     historyApiFallback: true,
     contentBase: path.join(__dirname, "public/"),
     port: 5555,
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
     publicPath: "/",
     proxy: {
       "/api": {
