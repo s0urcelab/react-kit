@@ -25,6 +25,7 @@ const ICON_MAP = {
     hdd1: 'hdd',
     hdd2: 'hdd',
     cpu_fan: 'fan',
+    hdd_fan: 'fan',
     cpu_load: 'load',
 }
 const TRANS_CN = {
@@ -33,7 +34,8 @@ const TRANS_CN = {
     ssd: '固态硬盘',
     hdd1: '机械硬盘1',
     hdd2: '机械硬盘2',
-    cpu_fan: '风扇转速',
+    cpu_fan: 'CPU风扇',
+    hdd_fan: '硬盘风扇',
     cpu_load: 'CPU负载',
 }
 const DATA_PATH = {
@@ -43,6 +45,7 @@ const DATA_PATH = {
     hdd1: 'Children:0.Children:6.Children:0.Children:0',
     hdd2: 'Children:0.Children:4.Children:0.Children:0',
     cpu_fan: 'Children:0.Children:0.Children:0.Children:2.Children:1',
+    hdd_fan: 'Children:0.Children:0.Children:0.Children:2.Children:0',
     cpu_load: 'Children:0.Children:1.Children:4.Children:0',
 }
 
