@@ -54,13 +54,14 @@ module.exports = {
     alias: {
       'react-dom': '@hot-loader/react-dom',
       '@assets': path.resolve(__dirname, 'assets/'),
-      '@': path.resolve(__dirname, 'src/')
+      '@': path.resolve(__dirname, 'src/'),
     }
   },
   output: {
     // filename: 'bundle.js',
     filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '//276962329.r.cdn36.com/',
   },
   plugins: [
     // 清空dist
